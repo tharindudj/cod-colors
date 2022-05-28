@@ -1,7 +1,7 @@
 {
   "name": "cod-colors",
   "displayName": "COD Colors",
-  "description": "VSCODE extension for generating/converting Call of Duty 4 Color Codes",
+  "description": "Call of Duty 4 color-code generator, converter",
   "publisher": "TharinduJ",
   "version": "0.0.2",
   "engines": {
