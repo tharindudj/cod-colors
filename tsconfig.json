@@ -18,7 +18,8 @@
 		"noEmitHelpers": true,
 		"importHelpers": true,
 		"allowSyntheticDefaultImports": true,
-		"esModuleInterop": true
+		"esModuleInterop": true,
+		"moduleResolution": "node"
 	},
 	"exclude": [
 		"node_modules",
