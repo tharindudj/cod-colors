@@ -1,5 +1,3 @@
-import * as vscode from 'vscode';
-
 // RGB TO HEX
 export function rgbToCod(rgbArr: number[]) {
   let r:number = rgbArr[0];

@@ -1,9 +1,9 @@
 # Change Log
 
-All notable changes to the "cod-colors" extension will be documented in this file.
+## [0.0.2]
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+- added color picker (Cod Color Generator)
 
-## [Unreleased]
+## [0.0.1]
 
-- Initial release
+- initial release: open with `Convert RGB/Hex to Cod Color` command, convert RGB/Hex to Cod Color

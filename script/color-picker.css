@@ -1,0 +1,134 @@
+.panel-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.panel-info {
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    text-align: center;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Titillium+Web:wght@200&display=swap');
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #0d131e;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn {
+    background-color: #0d131e;
+    color: white;
+    border: none;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-flex; */
+    font-size: 16px;
+    margin: 7px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #16af2f;
+    /* padding-top: 10px; */
+}
+
+.input-group {
+    display: inline-flex;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.form-inline .input-group {
+    width: 100%;
+}
+
+.form-control {
+    height: 10px;
+    width: 100%;
+    display: inline;
+    padding: 4px 6px;
+}
+.ipt {
+  height: 20px;
+  margin-top: 8px;
+  margin-left: 8px;
+  display: inline-block;
+}
+
+.gen-card {
+    background: rgb(0 0 0 / 67%);
+    box-shadow: 0 8px 25px 0 rgb(80 89 120 / 37%);
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 8px );
+    border-radius: 10px;
+    border: 1px solid rgb(0 10 255 / 20%);
+    padding: 30px 10px 0 10px;
+    margin-top: 30px;
+}
+
+h5 {
+    display: block;
+    font-size: 0.83em;
+    margin-block-start: 1.67em;
+    margin-block-end: 1.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    text-align: center;
+}
+
+h6 {
+    display: block;
+    font-size: 0.67em;
+    margin-block-start: 2.33em;
+    margin-block-end: 2.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.footer {
+  position: absolute;
+  bottom: 10px;
+}

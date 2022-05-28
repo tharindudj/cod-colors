@@ -1,59 +1,114 @@
 {
   "name": "cod-colors",
-	"displayName": "COD Colors",
-	"description": "Color code generator for Call of Duty 4 GSC/GSX, Menu Scripting",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.54.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-        "onCommand:cod-colors.convertToCod"
-	],
-	"main": "./dist/extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "cod-colors.convertToCod",
-				"title": "Convert Hex/RGB to COD Color"
-			}
-		],
-		"menus": {
+  "displayName": "COD Colors",
+  "description": "VSCODE extension for generating/converting Call of Duty 4 Color Codes",
+  "publisher": "TharinduJ",
+  "version": "0.0.2",
+  "engines": {
+    "vscode": "^1.67.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "assets/extension-icon.png",
+  "author": {
+    "email": "tharindujayakody21@gmail.com",
+    "name": "Tharindu Jayakody"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tharinduj/cod-colors"
+  },
+  "activationEvents": [
+    "onCommand:cod-colors.convertToCod",
+    "onView:left-panel-webview"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cod-colors.convertToCod",
+        "title": "Convert RGB/Hex to Cod Color"
+      }
+    ],
+    "menus": {
       "editor/context": [
         {
           "when": "editorHasSelection",
           "command": "cod-colors.convertToCod",
           "group": "1_modification"
-        }]
-		}
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run package",
-		"compile": "webpack",
-		"watch": "webpack --watch",
-		"package": "webpack --mode production --devtool hidden-source-map",
-		"compile-tests": "tsc -p . --outDir out",
-		"watch-tests": "tsc -p . -w --outDir out",
-		"pretest": "npm run compile-tests && npm run compile && npm run lint",
-		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
-	},
-	"devDependencies": {
-		"@types/vscode": "^1.54.0",
-		"@types/glob": "^7.2.0",
-		"@types/mocha": "^9.1.1",
-		"@types/node": "14.x",
-		"@typescript-eslint/eslint-plugin": "^5.21.0",
-		"@typescript-eslint/parser": "^5.21.0",
-		"eslint": "^8.14.0",
-		"glob": "^8.0.1",
-		"mocha": "^9.2.2",
-		"typescript": "^4.6.4",
-		"ts-loader": "^9.2.8",
-		"webpack": "^5.70.0",
-		"webpack-cli": "^4.9.2",
-		"@vscode/test-electron": "^2.1.3"
-	}
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "webview",
+          "title": "COD Colors",
+          "icon": "./assets/extension-icon.png"
+        }
+      ]
+    },
+    "views": {
+      "webview": [
+        {
+          "type": "webview",
+          "id": "left-panel-webview",
+          "name": "Color Generator",
+          "icon": "src/assets/extension-icon.png"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "npm run tsc -p ./",
+    "watch": "tsc -watch -p ./ && npm run compile",
+    "vscode:package": "vsce package",
+    "webpack": "rm -rf ./dist/* && webpack --mode development",
+    "package": "rm -rf *.vsix && npm run webpack && vsce package"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/jest": "^27.5.1",
+    "@types/jquery": "^3.5.14",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "14.x",
+    "@types/react-test-renderer": "^18.0.0",
+    "@types/vscode": "^1.67.0",
+    "@typescript-eslint/eslint-plugin": "^5.12.1",
+    "@typescript-eslint/parser": "^5.12.1",
+    "@vscode/test-electron": "^2.1.2",
+    "eslint": "^8.9.0",
+    "fuse.js": "^6.6.2",
+    "glob": "^7.2.3",
+    "mocha": "^9.2.1",
+    "react-test-renderer": "^18.1.0",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.5",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.5",
+    "@vscode/webview-ui-toolkit": "^1.0.0",
+    "animate.css": "^4.1.1",
+    "bootstrap": "^5.1.3",
+    "clipboard": "^2.0.11",
+    "dotenv-webpack": "^7.1.0",
+    "jquery": "^3.6.0",
+    "module-alias": "^2.2.2",
+    "path": "^0.12.7",
+    "react": "^18.1.0",
+    "react-color": "^2.19.3",
+    "react-color-palette": "^6.2.0",
+    "react-dom": "^17.0.2",
+    "reactcss": "^1.2.3"
+  },
+  "_moduleAliases": {
+    "utils": "dist/utils",
+    "providers": "dist/providers",
+    "components": "dist/components",
+    "constant": "dist/constant.js"
+  }
 }

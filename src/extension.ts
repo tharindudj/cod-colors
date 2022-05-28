@@ -1,20 +1,18 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+try {
+	require("module-alias/register");
+} catch (e) {
+	console.log("module-alias import error !");
+}
+import * as vscode from "vscode";
+import { EXTENSION_CONSTANT } from "constant";
+import { LeftPanelWebview } from "providers/colorgen-provider";
 import { getColorType } from './utils/getColorType';
 import { formatColor } from './utils/format';
 import { toCodColor } from './utils/toCodColor';
 
-
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-  console.log('Congratulations, your extension "COD Colors" is now active!');
-
-  const convertToCod = vscode.commands.registerCommand('cod-colors.convertToCod', () => {
+	const convertToCod = vscode.commands.registerCommand('cod-colors.convertToCod', () => {
     const editor = vscode.window.activeTextEditor;
     if (editor) {
 			const document = editor.document;
@@ -23,17 +21,24 @@ export function activate(context: vscode.ExtensionContext) {
       const selectedText = document.getText(selection).trim();
       const colorType = getColorType(selectedText);
       console.log(colorType.type);
-      const formatedColor = formatColor(colorType);
-      console.log(formatedColor);
-      const codColor = toCodColor(formatedColor);
+      const formattedColor = formatColor(colorType);
+      const codColor = toCodColor(formattedColor);
       editor.edit(editBuilder => {
         editBuilder.replace(selection, codColor);
       });
 		}
   });
+	context.subscriptions.push(convertToCod);
 
-  context.subscriptions.push(convertToCod);
-}
+	// Register view
+	const leftPanelWebViewProvider = new LeftPanelWebview(context?.extensionUri, {});
+	let view = vscode.window.registerWebviewViewProvider(
+		EXTENSION_CONSTANT.LEFT_PANEL_WEBVIEW_ID,
+		leftPanelWebViewProvider,
+	);
+	context.subscriptions.push(view);
+
+};
 
 // this method is called when your extension is deactivated
 export function deactivate() {}
