@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tharinduj/cod-colors"
+    "url": "https://github.com/tharindudj/cod-colors"
   },
   "activationEvents": [
     "onCommand:cod-colors.convertToCod",
